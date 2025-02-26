@@ -5,4 +5,5 @@ Optional - use page objects
 Optional - count the promoted (VIP/TOP/BEST) and write the numbers in the console/log
 
 * Tip: malko struktura nqma da e izlishna
+* BEST ads doesnt exist
 * Tochno golf li trqashe da e...

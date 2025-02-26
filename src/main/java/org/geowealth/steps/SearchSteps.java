@@ -17,21 +17,25 @@ import java.util.Map;
 public class SearchSteps {
 
     private TestContext testContext;
-    private HomePage homePage;
+    private SearchPage searchPage;
 
     public SearchSteps(TestContext testContext) {
         this.testContext = testContext;
-        homePage = new HomePage(this.testContext);
+        searchPage = new SearchPage(this.testContext);
     }
 
-    @Given("I search for a vehicle with the following criteria")
-    public void iNavigateToPage(DataTable searchCriteria) {
-        SearchPage searchPage = new SearchPage(testContext);
+    @Then("I fill the following vehicle criteria")
+    public void iFillTheFollowingVehicleSearchCriteria(DataTable searchCriteria) {
         List<Map<String, String>> rows = searchCriteria.asMaps(String.class, String.class);
 
         searchPage.fillCarBrand(rows.get(0).get("brand"))
-                  .fillCarModel(rows.get(0).get("model"))
-                  .fillExtras(new ArrayList<>(Arrays.asList(rows.get(0).get("extras").split(","))));
+                .fillCarModel(rows.get(0).get("model"))
+                .fillExtras(new ArrayList<>(Arrays.asList(rows.get(0).get("extras").split(","))));
+    }
+
+    @Then("I click button {string}")
+    public void iClickBtn(String arg) {
+        searchPage.clickBtn("Търси");
     }
 
 }

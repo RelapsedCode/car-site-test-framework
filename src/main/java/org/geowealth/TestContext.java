@@ -1,6 +1,7 @@
 package org.geowealth;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.geowealth.utilities.CustomWait;
 import org.geowealth.utilities.DriverFactory;
@@ -35,6 +36,10 @@ public class TestContext {
 
     public WebElement getElement(By elementLocator) {
         return driver.findElement(elementLocator);
+    }
+
+    public List<WebElement> getElements(By elementLocator) {
+        return driver.findElements(elementLocator);
     }
 
     public JavascriptActions getJavascriptActions() {

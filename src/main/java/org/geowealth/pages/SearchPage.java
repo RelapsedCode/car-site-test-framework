@@ -29,6 +29,9 @@ public class SearchPage {
     @FindBy(xpath = "//input[@name='model']")
     private WebElement carModelInput;
 
+    @FindBy(xpath = "//*[@class='SEARCH_btn MT6']")
+    private WebElement searchBtn;
+
     private static final String carBrandAndModelElementLocator = "//span[ancestor::*[@class=\"akSearchMarki\"] and text()='%s'][1]";
 
     public SearchPage(TestContext testContext) {
@@ -69,6 +72,18 @@ public class SearchPage {
             desiredExtra.click();
         }
         return this;
+    }
+
+    public SearchPage clickBtn(String term) {
+        switch (term) {
+            case "Търси":
+                testContext.getWait().elementToBeClickable(searchBtn);
+                searchBtn.click();
+                break;
+            default:
+                throw new RuntimeException("No element specified.");
+        }
+        return null;
     }
 
 }

@@ -8,9 +8,10 @@ Feature: Main test cases related to site for re-selling cars
 
   Scenario: Verify specific job availability
     Given I click on "Търсене"
-    When I search for a vehicle with the following criteria
+    When I fill the following vehicle criteria
       | brand | model | extras       |
-      | VW    | Golf  | 4x4, 7 места |
-    Then the results will be printed out
+      | VW    | Golf  | 4x4 |
+    * I click button "Търсене"
+    Then The results are counted and posted
 
 
